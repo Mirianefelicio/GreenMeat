@@ -65,6 +65,16 @@ public class Principal {
 		FornecedorDAO fornecedorDAO = new FornecedorDAOImpl();
 //		Cliente cliente1 = new Cliente();
 
+		
+		
+		List <Produto> produtosRecup = produtoDAO.recuperarPorCategoria("Aves");
+//		
+//		for (Produto produto : produtosRecup) {
+//			System.out.println(produto.getNome());
+//		}
+		System.out.println();
+		
+		
 		Scanner leitor = new Scanner(System.in);
 
 		System.out.println("Pressione 1 para entrar(cliente)");

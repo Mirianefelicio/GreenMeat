@@ -17,7 +17,8 @@ public interface ProdutoDAO {
 	Produto recuperarPorId(Long id);
 	
 	Produto recuperarProdutoItem(Item item);
-	
+			
 	List<Produto> recuperarProdutos();
 
+	List<Produto>recuperarPorCategoria(String categoria);
 }

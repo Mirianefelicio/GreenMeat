@@ -1,5 +1,6 @@
 package model.dao.produto;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -224,6 +225,54 @@ public class ProdutoDAOImpl implements ProdutoDAO {
 		return produtos;
 
 	}
+	
+	
+	
+	public List<Produto>recuperarPorCategoria(String categoria){
+		Session sessao = null;
+		List<Produto> produtos = null;
+		
+		
+		try {
+
+			sessao = conectarBanco().openSession();
+			sessao.beginTransaction();
+
+			CriteriaBuilder construtor = sessao.getCriteriaBuilder();
+
+			CriteriaQuery<Produto> criteria = construtor.createQuery(Produto.class);
+			Root<Produto> raizProduto = criteria.from(Produto.class);
+
+//			Join<Produto, Item> juncaoItem= raizProduto.join("produto");
+
+			ParameterExpression<String> categoriaProduto = construtor.parameter(String.class);
+			criteria.where(construtor.equal(categoriaProduto, categoria));
+
+			produtos = sessao.createQuery(criteria).setParameter(categoriaProduto, categoria ).getResultList();
+
+			sessao.getTransaction().commit();
+
+		} catch (Exception sqlException) {
+
+			sqlException.printStackTrace();
+
+			if (sessao.getTransaction() != null) {
+				sessao.getTransaction().rollback();
+			}
+
+		} finally {
+
+			if (sessao != null) {
+				sessao.close();
+			}
+		}
+		
+		
+		return produtos;
+	}
+	
+	
+	
 
 	private SessionFactory conectarBanco() {
 
