@@ -1,0 +1,6 @@
+modelo/entidade/contato/Contato.class
+controle/servlet/ContatoServlet.class
+modelo/dao/contato/ContatoDAOImpl.class
+modelo/dao/contato/ContatoDAO.class
+modelo/entidade/contato/Contato_.class
+modelo/factory/conexao/ConexaoFactory.class

@@ -48,13 +48,15 @@ public class Produto implements Serializable {
 	@JoinColumn(name = "id_fornecedor")			
 	private Fornecedor fornecedor;
 
-	@Enumerated(EnumType.STRING)
-	private Tipo tipoCarne;
+//	@Enumerated(EnumType.STRING)
+
+	@Column(name = "TipoCarne")
+	private String tipoCarne;
 
 	public Produto() {
 	}
 
-	public Produto(String nome, String descricao, Tipo tipoCarne, float precoCusto, float precoVenda, 
+	public Produto(String nome, String descricao, String tipoCarne, float precoCusto, float precoVenda, 
 		Fornecedor fornecedor)
 			throws InvalidFieldException {
 		setNome(nome);
@@ -64,7 +66,7 @@ public class Produto implements Serializable {
 		setPrecoVenda(precoVenda);
 	}
 
-	public Produto(String nome, String descricao, Tipo tipoCarne)
+	public Produto(String nome, String descricao, String tipoCarne)
 			throws InvalidFieldException, ExpirationDateInvalidException {
 		setNome(nome);
 		setDescricao(descricao);
@@ -133,11 +135,11 @@ public class Produto implements Serializable {
 		this.dataValidade = dataValidade;
 	}
 
-	public Tipo getTipoCarne() {
+	public String getTipoCarne() {
 		return tipoCarne;
 	}
 
-	public void setTipoCarne(Tipo tipoCarne) {
+	public void setTipoCarne(String tipoCarne) {
 		this.tipoCarne = tipoCarne;
 	}
 

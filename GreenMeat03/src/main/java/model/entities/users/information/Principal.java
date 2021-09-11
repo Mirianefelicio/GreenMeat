@@ -27,6 +27,7 @@ import model.dao.usuario.UsuarioDAOImpl;
 import model.entities.products.Item;
 import model.entities.products.Pedido;
 import model.entities.products.Produto;
+import model.entities.products.Tipo;
 import model.entities.users.Cliente;
 import model.entities.users.Fornecedor;
 import model.entities.users.PessoaFisica;
@@ -41,6 +42,7 @@ public class Principal {
 			throws InvalidFieldException, CountryInvalidException, EmailInvalidException, PhoneNumberInvalidException {
 
 		System.out.println("Hello World");
+
 
 		///////////////////////////// CADASTRO ENDERECO
 		///////////////////////////// LOCALIDADE//////////////////////////////////////
@@ -66,13 +68,6 @@ public class Principal {
 //		Cliente cliente1 = new Cliente();
 
 		
-		
-		List <Produto> produtosRecup = produtoDAO.recuperarPorCategoria("Aves");
-//		
-//		for (Produto produto : produtosRecup) {
-//			System.out.println(produto.getNome());
-//		}
-		System.out.println();
 		
 		
 		Scanner leitor = new Scanner(System.in);
