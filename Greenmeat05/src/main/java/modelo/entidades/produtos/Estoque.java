@@ -35,7 +35,7 @@ public class Estoque implements Serializable {
 		
 		EstoqueDAO estoqueDAO = new EstoqueDAOImpl();
 		
-		Estoque estoque = estoqueDAO.recuperarEstoque();
+		Estoque estoque = (Estoque) estoqueDAO.recuperarEstoque();
 		if (getItens().contains(produto) == false) {
 			getItens().add(new Item(produto, 0));
 		}
